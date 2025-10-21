@@ -1,17 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import {
-  useMeals,
-  useWorkouts,
-  useWaterLogs,
-  useUserProfile,
-} from "@/lib/queries";
+import { useMeals, useWorkouts, useWaterLogs } from "@/lib/queries";
 import DateFilter from "@/components/ui/DateFilter";
 
 export default function DashboardPage() {
   const [selectedDate, setSelectedDate] = useState(new Date());
-  const { data: profile } = useUserProfile();
   const { data: meals = [] } = useMeals(selectedDate);
   const { data: workouts = [] } = useWorkouts(selectedDate);
   const { data: waterLogs = [] } = useWaterLogs(selectedDate);
@@ -23,7 +17,6 @@ export default function DashboardPage() {
   );
   const totalProtein = meals.reduce((sum, meal) => sum + meal.protein, 0);
   const totalCarbs = meals.reduce((sum, meal) => sum + meal.carbs, 0);
-  const totalFats = meals.reduce((sum, meal) => sum + meal.fats, 0);
   const totalCaloriesBurned = workouts.reduce(
     (sum, w) => sum + w.caloriesBurned,
     0

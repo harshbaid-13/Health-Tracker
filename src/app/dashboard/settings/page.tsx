@@ -155,7 +155,7 @@ export default function SettingsPage() {
       console.log("Available Gemini Models:", models);
       alert(
         `Available models (check console for details):\n\n${models
-          .map((m: any) => m.name)
+          .map((m: { name: string }) => m.name)
           .join("\n")}`
       );
     } catch (error) {

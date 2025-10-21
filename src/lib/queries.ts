@@ -1,5 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import { db, UserProfile, MealLog, WorkoutLog, WaterLog, SleepLog, AppSettings, DailyTargets } from './db';
+import { db, UserProfile, MealLog, WorkoutLog, SleepLog, AppSettings, DailyTargets } from './db';
 
 // User Profile
 export function useUserProfile() {
